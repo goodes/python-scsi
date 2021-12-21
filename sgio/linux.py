@@ -99,7 +99,7 @@ def execute(
 
     if resp.info & SG_INFO_OK_MASK != SD_INFO_OK:
         if resp.sb_len_wr > 0:
-            raise CheckConditionError(bytes(sense_buffer[:io_hdr.sb_len_wr]))
+            raise CheckConditionError(bytes(sense_buffer[:resp.sb_len_wr]))
         else:
             raise UnspecifiedError()
 
